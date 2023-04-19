@@ -1,9 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `audiencias` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-USE `audiencias`;
-
 CREATE TABLE `audiencias` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `title` varchar(255) NOT NULL,
   `start` datetime NOT NULL,
   `end` datetime NOT NULL,
@@ -16,7 +12,7 @@ CREATE TABLE `audiencias` (
   `observaciones` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-)
+);
 
 INSERT INTO `audiencias` (`id`, `title`, `start`, `end`, `tipoAudiencia`, `sala`, `magis`, `abo_patrocinante`, `textColor`, `backgroundColor`, `observaciones`, `created_at`, `updated_at`) VALUES
 (2, 'O-24-23', '2023-04-17 09:00:00', '2023-04-17 10:00:00', 'Audiencia Preparatoria', '1', 'Inge Müller', NULL, '#C00000', '#FFFFCC', 'se fijó audiencia de juicio para el día 13 de septiembre de 2023, a las 12:00 horas sala 1, presencial.', '2023-04-17 20:43:01', '2023-04-18 02:04:37'),
@@ -70,12 +66,6 @@ INSERT INTO `audiencias` (`id`, `title`, `start`, `end`, `tipoAudiencia`, `sala`
 (55, 'O-158-22', '2023-04-25 12:00:00', '2023-04-25 13:30:00', 'Audiencia de Juicio', '1', 'Audiencia Preparatoria', NULL, '#000000', '#99FF33', NULL, '2023-04-18 20:47:41', '2023-04-18 20:47:41'),
 (56, 'O-173-22', '2023-04-25 12:00:00', '2023-04-25 13:30:00', 'Audiencia de Juicio', '2', 'Audiencia Preparatoria', NULL, '#000000', '#99FF33', NULL, '2023-04-18 20:47:54', '2023-04-18 20:47:54');
 
-ALTER TABLE `audiencias`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `audiencias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
-COMMIT;
 
 CREATE TABLE `magistrados` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -83,7 +73,7 @@ CREATE TABLE `magistrados` (
   `apellido` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-)
+);
 
 INSERT INTO `magistrados` (`id`, `nombre`, `apellido`, `created_at`, `updated_at`) VALUES
 (1, 'Inge', 'Müller', '2021-04-18 16:51:11', '2021-04-18 16:51:11'),
